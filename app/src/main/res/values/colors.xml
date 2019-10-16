@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#01BDA0</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorCard2">#FF93A5A4</color>
+    <color name="primary">#009688</color>
+    <color name="primary_dark">#00796B</color>
+    <color name="colorCard">#B2DFDB</color>
+    <color name="accent">#00A78E</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+
+    <color name="dark_blue">#3023AE</color>
+    <color name="purple">#c86dd7</color>
+
+    <color name="login_form_details">#ccffffff</color>
+    <color name="login_form_details_light">#1affffff</color>
+    <color name="login_form_details_medium">#66ffffff</color>
+
+    <color name="purple_500">#9C27B0</color>
+    <color name="deep_purple_500">#673AB7</color>
+    <color name="indigo_500">#3F51B5</color>
+    <color name="blue_500">#2196F3</color>
+    <color name="cyan_500">#00BCD4</color>
+    <color name="light_blue_500">#03A9F4</color>
+</resources>
+

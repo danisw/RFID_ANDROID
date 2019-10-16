@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:padding="16dp">
+
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorCard"
+        android:layout_marginTop="30px">
+
+
+            <TextView
+                android:id="@+id/no_WTR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_detail"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_below="@+id/no_WTR"
+            android:layout_marginTop="60px"
+            android:orientation="vertical"
+            android:padding="5dp"
+
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            tool:listitem="@layout/list_item_detail" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Simpan"
+            android:id="@+id/save_to_wht"
+            android:layout_gravity="bottom"/>
+    </android.support.v7.widget.CardView>
+
+
+
+</LinearLayout>
