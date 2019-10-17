@@ -98,6 +98,9 @@ public class DeviceScanActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_content_simple);
 
+        assert getSupportActionBar() != null;   //null check
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //show back button
+
         btn_logout=findViewById(R.id.buttonLogout);
         //Kode WTR
         Intent iin= getIntent();
@@ -220,12 +223,13 @@ public class DeviceScanActivity extends ListActivity {
         }
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
        // Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar2);
         //setSupportActionBar(toolbar);
         //toolbar.inflateMenu(R.menu.main);
-//        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.back_menu, menu);
 //        for (int i = 0; i < menu.size(); i++) {
 //            menu.getItem(i).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 //            menu.findItem(R.id.menu_stop).setVisible(true);
@@ -244,25 +248,21 @@ public class DeviceScanActivity extends ListActivity {
 //            menu.findItem(R.id.menu_refresh).setActionView(
 //                    R.layout.actionbar_indeterminate_progress);
 //        }
-        return super.onCreateOptionsMenu(menu);
-        //return true;
+        //return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//        case R.id.menu_scan:
-//            mLeDeviceListAdapter.clear();
-//            scanLeDevice(true);
-//            break;
-//        case R.id.menu_stop:
-//            scanLeDevice(false);
-//            break;
-//        case R.id.menu_about:
-//            DialogFragment fragment = new VersionInfoDialogFragment();
-//            fragment.show(getSupportFragmentManager(), "VersionInfo");
-//            break;
-//        }
+
+        switch (item.getItemId()) {
+        case R.id.menu_logout:
+            finish();
+            SharedPrefManager.getInstance(getApplicationContext()).logout();
+            break;
+        default:
+            onBackPressed();
+        }
         return true;
     }
 

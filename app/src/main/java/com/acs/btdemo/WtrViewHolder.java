@@ -35,12 +35,12 @@ public class WtrViewHolder extends RecyclerView.ViewHolder {
         tanggal.setText(model.getTanggal_wtr());
         epoch = model.getEpoch();
         Integer pres = Integer.parseInt(model.getPresentase());
-        if(pres > 30 && pres <=60){
-            LL_presentase.setBackgroundColor(Color.YELLOW);
-        }else if(pres >60){
+        if(pres > 30 && pres <60){
+            LL_presentase.setBackgroundColor(Color.parseColor("#FFC000"));
+        }else if(pres >=60){
             LL_presentase.setBackgroundColor(Color.parseColor("#8ECF47"));
         }else{
-            LL_presentase.setBackgroundColor(Color.RED);
+            LL_presentase.setBackgroundColor(Color.parseColor("#FF3737"));
         }
         presentase.setText(model.getPresentase()+" %");
         keterangan.setText(model.getApproved_qty()+" Item Terpenuhi dari "+model.getRequest_qty()+" Item.");

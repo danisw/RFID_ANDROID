@@ -306,6 +306,10 @@ public class WtrChildViewHolder extends RecyclerView.ViewHolder {
 
             }
             private void ifIdentik(final ReaderActivity.VolleyCallback callback,String kode_picked, String uid_card) {
+                if(uid_card.equals("6300")){
+                    alert3("Error Card"," Kartu Tidak ditemukan");
+
+                }else{
                 String kode_barang=uid_card.substring(0,8);
                 RequestQueue queue = Volley.newRequestQueue(context);
                 String url ="http://10.1.250.116/rest-api/index.php/api/UID_CEK/index_get/"+kode_picked+"/"+kode_barang;
@@ -337,6 +341,7 @@ public class WtrChildViewHolder extends RecyclerView.ViewHolder {
                 queue.add(request);
 
             }
+        }
             private void alert3(String Judul, String Pesan) {
                 AlertDialog alertDialog = new AlertDialog.Builder(context)
                         //set icon

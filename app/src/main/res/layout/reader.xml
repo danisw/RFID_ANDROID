@@ -96,42 +96,44 @@
 
                 <Button
                     android:id="@+id/button_Connect"
-                    android:layout_width="136dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="130dp"
+                    android:layout_height="44dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@color/accent"
                     android:fontFamily="sans-serif-condensed"
                     android:text="@string/connect"
-                    android:background="@color/accent"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginBottom="26dp"
-                    app:layout_collapseMode="pin"
                     android:textColor="@drawable/new_color"
-                    />
+                    app:layout_collapseMode="pin" />
+
                 <Button
                     android:id="@+id/button_Authenticate"
-                    android:layout_width="136dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/authenticate"
-                    android:background="@color/accent"
-                    android:textColor="@drawable/new_color"
+                    android:layout_width="138dp"
+                    android:layout_height="44dp"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="26dp"
-                    app:layout_collapseMode="pin"
-                    />
+                    android:layout_marginBottom="1dp"
+                    android:background="@color/accent"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/authenticate"
+                    android:textColor="@drawable/new_color"
+                    app:layout_collapseMode="pin" />
+
                 <Button
                     android:id="@+id/button_StartPolling"
                     android:layout_width="136dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed"
-                    android:background="@color/accent"
+                    android:layout_height="44dp"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
-                    app:layout_collapseMode="pin"
+                    android:layout_marginRight="-5dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="@color/accent"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="@string/start_polling"
                     android:textColor="@drawable/new_color"
-                    android:layout_marginBottom="26dp"/>
+                    app:layout_collapseMode="pin" />
             </RelativeLayout>
             <!--<Space-->
             <!--android:id="@+id/circle_collapsed_target"-->
