@@ -83,7 +83,7 @@
             android:id="@+id/editTextSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter search term"
+            android:hint="Masukkan Nomer WTR"
             tools:layout_constraintTop_creator="1"
             />
     </LinearLayout>

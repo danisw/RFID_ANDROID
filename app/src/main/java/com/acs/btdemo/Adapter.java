@@ -68,7 +68,7 @@ public abstract class Adapter <DataClass, ViewHolder extends RecyclerView.ViewHo
     //This method will filter the list
     //here we are passing the filtered data
     //and assigning it to the list with notifydatasetchanged method
-    public void filterList(ArrayList<WtrModel> filterdNames) {
+    public void filterList(ArrayList<DataClass> filterdNames) {
         this.data = (List<DataClass>) filterdNames;
         notifyDataSetChanged();
     }

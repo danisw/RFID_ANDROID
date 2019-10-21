@@ -31,6 +31,8 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -173,6 +175,7 @@ public class  ReaderActivity extends AppCompatActivity implements
     private EditText mEditMasterKey;
     private static EditText mEditApdu;
     private EditText mEditEscape;
+    private EditText editTextSearch;
 
     /* Detected reader. */
     private BluetoothReader mBluetoothReader;
@@ -331,6 +334,8 @@ public class  ReaderActivity extends AppCompatActivity implements
         mEditEscape = (EditText) findViewById(R.id.editText_Escape);
         rvTxtScan = findViewById(R.id.uid);
         //btn_save= findViewById(R.id.save_to_wht);
+        /*intitialize search edit text*/
+        editTextSearch=findViewById(R.id.editTextSearch_2);
         btn_connect = findViewById(R.id.button_Connect);
         fab=findViewById(R.id.fab_save);
 
@@ -357,6 +362,41 @@ public class  ReaderActivity extends AppCompatActivity implements
             @Override
             public void onClick(View view) {
                 connectReader();
+            }
+        });
+        editTextSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                //after the change calling the method and passing the search input
+                filter(editable.toString());
+            }
+
+            private void filter(String text) {
+                //new array list that will hold the filtered data
+                ArrayList<ChildItem> filterdNames = new ArrayList<>();
+
+                //looping through existing elements
+                for (ChildItem s : dataParent ) {
+
+                    //if the existing elements contains the search input
+                    if (s.getKode_barang().toLowerCase().contains(text.toLowerCase())) {
+                        //adding the element to filtered list
+                        filterdNames.add(s);
+                    }
+                }
+
+                //calling a method of the adapter class and passing the filtered list
+                adapter.filterList(filterdNames);
             }
         });
     }
@@ -1255,6 +1295,8 @@ public class  ReaderActivity extends AppCompatActivity implements
             }
         },no_WTR);
         recyclerViewParent = (RecyclerView) findViewById(R.id.recycler_view);
+
+
         setUpView();
 
 
