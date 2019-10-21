@@ -5,8 +5,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import java.lang.reflect.Constructor;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Adapter <DataClass, ViewHolder extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<ViewHolder>{
@@ -62,4 +65,12 @@ public abstract class Adapter <DataClass, ViewHolder extends RecyclerView.ViewHo
         void onImageClick(int position);
         void onRemoveItem(int position);
     }
+    //This method will filter the list
+    //here we are passing the filtered data
+    //and assigning it to the list with notifydatasetchanged method
+    public void filterList(ArrayList<WtrModel> filterdNames) {
+        this.data = (List<DataClass>) filterdNames;
+        notifyDataSetChanged();
+    }
+
 }

@@ -44,11 +44,15 @@
         <activity android:name=".ReaderActivity"
             android:theme="@style/AppFullScreenTheme"
             />
-        <activity android:name=".ItemWhtList" />
-        <activity android:name=".ListWtrActivity" />
+        <activity android:name=".ItemWhtList" >
+
+        </activity>
+        <activity android:name=".ListWtrActivity">
+        </activity>
         <activity android:name=".DeviceScanActivity" />
         <activity android:name=".DataHeaderWHT"/>
-        <activity android:name=".UserProfile"/>
+        <activity android:name=".UserProfile"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

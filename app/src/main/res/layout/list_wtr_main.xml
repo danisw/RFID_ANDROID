@@ -76,6 +76,18 @@
         android:text="Cari"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
         />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/editTextSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter search term"
+            tools:layout_constraintTop_creator="1"
+            />
+    </LinearLayout>
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_wtr"

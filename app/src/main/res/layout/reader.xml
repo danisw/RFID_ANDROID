@@ -327,33 +327,7 @@
 
     </LinearLayout>
 
-    <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"/>-->
-    <!--<RelativeLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_weight="0"-->
-    <!--android:layout_gravity="bottom">-->
-    <!--<Button-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="80dp"-->
-    <!--android:background="@color/colorPrimary"-->
-    <!--android:textColor="#FFFF"-->
-    <!--android:clickable="true"-->
-    <!--android:text="Save"-->
-    <!--android:id="@+id/save_to_wht"/>-->
-    <!--</RelativeLayout>-->
-    <!--<de.hdodenhof.circleimageview.CircleImageView-->
-    <!--android:id="@+id/circle_image_view"-->
-    <!--android:layout_width="120dp"-->
-    <!--android:layout_height="120dp"-->
-    <!--android:src="@drawable/bg"-->
-    <!--android:layout_marginTop="220dp"-->
-    <!--android:layout_gravity="top|center_horizontal"-->
-    <!--android:elevation="8dp"-->
-    <!--app:border_color="@android:color/black"-->
-    <!--app:border_width="2dp"-->
-    <!--app:collapsedTarget="@id/circle_collapsed_target"-->
-    <!--app:layout_behavior="com.acs.btdemo.CollapsingImageBehaviour"/>-->
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_save"
         android:layout_width="wrap_content"
@@ -365,6 +339,5 @@
         android:backgroundTint="@color/accent"
         android:contentDescription="Submit"
         android:layout_margin="0dp"
-        android:src="@drawable/save"
-        ></android.support.design.widget.FloatingActionButton>
+        android:src="@drawable/save" />
 </android.support.design.widget.CoordinatorLayout>

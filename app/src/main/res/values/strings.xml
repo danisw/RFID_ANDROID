@@ -26,7 +26,8 @@
     <string name="about">About BTDemo</string>
     <string name="version">Version</string>
     <string name="unknown_version">Unknown version</string>
-    <string name="ok">OK</string>    
+    <string name="ok">OK</string>
+    <string name="search_hint">ketik disini</string>
 
     <!-- Activity -->
     <string name="apdu_command">APDU command</string>

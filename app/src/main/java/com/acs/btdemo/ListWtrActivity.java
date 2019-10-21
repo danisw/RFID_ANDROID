@@ -9,12 +9,17 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +36,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.acs.btdemo.ReaderActivity.no_WTR;
 
@@ -42,6 +48,8 @@ public class ListWtrActivity extends AppCompatActivity implements Spinner.OnItem
     private CollapsingToolbarLayout mCToolbarLayout;
     private Button btn_konfirm;
     private RecyclerView listView;
+    private SearchView searchView;
+    private EditText editTextSearch;
 
     /* Reader to be connected. */
     private String mDeviceName;
@@ -70,6 +78,8 @@ public class ListWtrActivity extends AppCompatActivity implements Spinner.OnItem
     ArrayList<WtrModel> dataItem = new ArrayList<>();
     Adapter<WtrModel, WtrViewHolder> adapter = new Adapter<WtrModel, WtrViewHolder>
             (R.layout.list_wtr_child, WtrViewHolder.class, dataItem) {
+        private List<WtrModel> wtrList;
+        private List<WtrModel> wtrListFiltered;
 
         @Override
         protected void bindView(WtrViewHolder holder, final WtrModel model, int position) {
@@ -99,6 +109,8 @@ public class ListWtrActivity extends AppCompatActivity implements Spinner.OnItem
                 }
             });
         }
+
+
     };
 
 
@@ -142,6 +154,9 @@ public class ListWtrActivity extends AppCompatActivity implements Spinner.OnItem
         }else{
             finish();
         }
+        /*intitialize search edit text*/
+        editTextSearch=findViewById(R.id.editTextSearch);
+
         /* Initialise list view, hero image, and sticky view */
         listView = (RecyclerView) findViewById(R.id.rv_wtr);
         heroImageView = findViewById(R.id.heroImageView_wtr);
@@ -239,7 +254,71 @@ public class ListWtrActivity extends AppCompatActivity implements Spinner.OnItem
             }
         });
 
+        editTextSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                //after the change calling the method and passing the search input
+                filter(editable.toString());
+            }
+
+            private void filter(String text) {
+                //new array list that will hold the filtered data
+                ArrayList<WtrModel> filterdNames = new ArrayList<>();
+
+                //looping through existing elements
+                for (WtrModel s : dataItem ) {
+
+                    //if the existing elements contains the search input
+                    if (s.getTitle().toLowerCase().contains(text.toLowerCase())) {
+                        //adding the element to filtered list
+                        filterdNames.add(s);
+                    }
+                }
+
+                //calling a method of the adapter class and passing the filtered list
+                adapter.filterList(filterdNames);
+            }
+        });
+
         setUpView();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_search, menu);
+//        // Associate searchable configuration with the SearchView
+//        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+//        searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+//        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+//        searchView.setMaxWidth(Integer.MAX_VALUE);
+//
+//        // listening to search query text change
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                // filter recycler view when query submitted
+//                adapter.getFilter().filter(query);
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String query) {
+//                // filter recycler view when text is changed
+//                adapter.getFilter().filter(query);
+//                return false;
+//            }
+//        });
+        return true;
     }
 
     @Override
